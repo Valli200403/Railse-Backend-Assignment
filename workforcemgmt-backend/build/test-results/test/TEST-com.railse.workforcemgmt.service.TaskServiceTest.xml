@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.railse.workforcemgmt.service.TaskServiceTest" tests="19" skipped="0" failures="2" errors="0" timestamp="2025-08-02T14:00:35.382Z" hostname="codespaces-f3b094" time="0.878">
+  <properties/>
+  <testcase name="updateTaskPriority_shouldThrowExceptionIfPriorityIsSame()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.531"/>
+  <testcase name="reassignTask_shouldCancelOldTaskAndCreateNewTaskAndLogActivity()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.031"/>
+  <testcase name="deleteTask_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.008"/>
+  <testcase name="reassignTask_shouldThrowExceptionIfOriginalTaskNotFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.009"/>
+  <testcase name="deleteTask_shouldDeleteTaskSuccessfullyAndLogActivity()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.016"/>
+  <testcase name="reassignTask_shouldThrowExceptionIfSameAssignee()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.007"/>
+  <testcase name="getActiveTasks_shouldReturnOnlyNonCancelledTasks()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.01"/>
+  <testcase name="updateTaskPriority_shouldUpdatePriorityAndLogActivity()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.055">
+    <failure message="Wanted but not invoked:&#10;taskActivityService.logActivity(&#10;    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020990045, dueDate=2025-08-03T14:00:36.020994363, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020998641, lastModifiedDate=2025-08-02T14:00:36.021002258, activityLog=[], comments=[]),&#10;    &lt;any string&gt;&#10;);&#10;-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)&#10;&#10;However, there was exactly 1 interaction with this mock:&#10;taskActivityService.logActivity(&#10;    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020968846, dueDate=2025-08-03T14:00:36.020976109, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020981600, lastModifiedDate=2025-08-02T14:00:36.020985457, activityLog=[], comments=[]),&#10;    &quot;Priority changed from HIGH to URGENT&quot;&#10;);&#10;-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)&#10;&#10;" type="org.mockito.exceptions.verification.WantedButNotInvoked">Wanted but not invoked:
+taskActivityService.logActivity(
+    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020990045, dueDate=2025-08-03T14:00:36.020994363, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020998641, lastModifiedDate=2025-08-02T14:00:36.021002258, activityLog=[], comments=[]),
+    &lt;any string&gt;
+);
+-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+
+However, there was exactly 1 interaction with this mock:
+taskActivityService.logActivity(
+    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020968846, dueDate=2025-08-03T14:00:36.020976109, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020981600, lastModifiedDate=2025-08-02T14:00:36.020985457, activityLog=[], comments=[]),
+    &quot;Priority changed from HIGH to URGENT&quot;
+);
+-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)
+
+
+	at app//com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+	at app//com.railse.workforcemgmt.service.TaskServiceTest.updateTaskPriority_shouldUpdatePriorityAndLogActivity(TaskServiceTest.java:438)
+	at java.base@21.0.7/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="addComment_shouldReturnCreatedCommentDto()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.031"/>
+  <testcase name="getAllTasks_shouldReturnListOfTaskDtos()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.008"/>
+  <testcase name="getTaskById_shouldReturnTaskDtoWhenFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.007"/>
+  <testcase name="reassignTask_shouldThrowExceptionIfTaskAlreadyCancelled()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.003"/>
+  <testcase name="createTask_shouldReturnCreatedTaskDtoAndLogActivity()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.018"/>
+  <testcase name="getTaskById_shouldThrowResourceNotFoundExceptionWhenNotFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.009"/>
+  <testcase name="updateTaskPriority_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.008"/>
+  <testcase name="updateTask_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.026"/>
+  <testcase name="getTaskByIdWithDetails_shouldReturnTaskDtoWithDetailsWhenFound()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.014"/>
+  <testcase name="getTasksForDateRange_shouldReturnFilteredTasks()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.017"/>
+  <testcase name="updateTask_shouldReturnUpdatedTaskDtoAndLogActivity()" classname="com.railse.workforcemgmt.service.TaskServiceTest" time="0.023">
+    <failure message="org.mockito.exceptions.verification.TooFewActualInvocations: &#10;taskActivityService.logActivity(&#10;    Task(id=1, title=Updated Title, description=Updated Desc, assignee=Old Assignee, startDate=2025-08-03T14:00:36.242809255, dueDate=2025-08-12T14:00:36.242812501, priority=LOW, cancelled=true, creationDate=2025-08-02T14:00:36.242815637, lastModifiedDate=2025-08-02T14:00:36.242818121, activityLog=[], comments=[]),&#10;    &lt;any string&gt;&#10;);&#10;Wanted 2 times:&#10;-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)&#10;But was 1 time:&#10;-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)&#10;" type="org.mockito.exceptions.verification.TooFewActualInvocations">org.mockito.exceptions.verification.TooFewActualInvocations: 
+taskActivityService.logActivity(
+    Task(id=1, title=Updated Title, description=Updated Desc, assignee=Old Assignee, startDate=2025-08-03T14:00:36.242809255, dueDate=2025-08-12T14:00:36.242812501, priority=LOW, cancelled=true, creationDate=2025-08-02T14:00:36.242815637, lastModifiedDate=2025-08-02T14:00:36.242818121, activityLog=[], comments=[]),
+    &lt;any string&gt;
+);
+Wanted 2 times:
+-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+But was 1 time:
+-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)
+
+	at app//com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+	at app//com.railse.workforcemgmt.service.TaskServiceTest.updateTask_shouldReturnUpdatedTaskDtoAndLogActivity(TaskServiceTest.java:346)
+	at java.base@21.0.7/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

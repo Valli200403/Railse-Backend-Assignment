@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TaskServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TaskServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.railse.workforcemgmt.service.html">com.railse.workforcemgmt.service</a> &gt; TaskServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">19</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.831s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">89%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="updateTaskPriority_shouldUpdatePriorityAndLogActivity()"></a>
+<h3 class="failures">updateTaskPriority_shouldUpdatePriorityAndLogActivity()</h3>
+<span class="code">
+<pre>Wanted but not invoked:
+taskActivityService.logActivity(
+    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020990045, dueDate=2025-08-03T14:00:36.020994363, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020998641, lastModifiedDate=2025-08-02T14:00:36.021002258, activityLog=[], comments=[]),
+    &lt;any string&gt;
+);
+-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+
+However, there was exactly 1 interaction with this mock:
+taskActivityService.logActivity(
+    Task(id=1, title=Task 1, description=Desc, assignee=Alice, startDate=2025-08-02T14:00:36.020968846, dueDate=2025-08-03T14:00:36.020976109, priority=URGENT, cancelled=false, creationDate=2025-08-02T14:00:36.020981600, lastModifiedDate=2025-08-02T14:00:36.020985457, activityLog=[], comments=[]),
+    &quot;Priority changed from HIGH to URGENT&quot;
+);
+-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)
+
+
+	at app//com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+	at app//com.railse.workforcemgmt.service.TaskServiceTest.updateTaskPriority_shouldUpdatePriorityAndLogActivity(TaskServiceTest.java:438)
+	at java.base@21.0.7/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="updateTask_shouldReturnUpdatedTaskDtoAndLogActivity()"></a>
+<h3 class="failures">updateTask_shouldReturnUpdatedTaskDtoAndLogActivity()</h3>
+<span class="code">
+<pre>org.mockito.exceptions.verification.TooFewActualInvocations: 
+taskActivityService.logActivity(
+    Task(id=1, title=Updated Title, description=Updated Desc, assignee=Old Assignee, startDate=2025-08-03T14:00:36.242809255, dueDate=2025-08-12T14:00:36.242812501, priority=LOW, cancelled=true, creationDate=2025-08-02T14:00:36.242815637, lastModifiedDate=2025-08-02T14:00:36.242818121, activityLog=[], comments=[]),
+    &lt;any string&gt;
+);
+Wanted 2 times:
+-&gt; at com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+But was 1 time:
+-&gt; at com.railse.workforcemgmt.service.TaskService.logActivity(TaskService.java:45)
+
+	at app//com.railse.workforcemgmt.service.TaskActivityService.logActivity(TaskActivityService.java:20)
+	at app//com.railse.workforcemgmt.service.TaskServiceTest.updateTask_shouldReturnUpdatedTaskDtoAndLogActivity(TaskServiceTest.java:346)
+	at java.base@21.0.7/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addComment_shouldReturnCreatedCommentDto()</td>
+<td class="success">0.031s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createTask_shouldReturnCreatedTaskDtoAndLogActivity()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteTask_shouldDeleteTaskSuccessfullyAndLogActivity()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteTask_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getActiveTasks_shouldReturnOnlyNonCancelledTasks()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllTasks_shouldReturnListOfTaskDtos()</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTaskByIdWithDetails_shouldReturnTaskDtoWithDetailsWhenFound()</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTaskById_shouldReturnTaskDtoWhenFound()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTaskById_shouldThrowResourceNotFoundExceptionWhenNotFound()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTasksForDateRange_shouldReturnFilteredTasks()</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reassignTask_shouldCancelOldTaskAndCreateNewTaskAndLogActivity()</td>
+<td class="success">0.031s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reassignTask_shouldThrowExceptionIfOriginalTaskNotFound()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reassignTask_shouldThrowExceptionIfSameAssignee()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reassignTask_shouldThrowExceptionIfTaskAlreadyCancelled()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateTaskPriority_shouldThrowExceptionIfPriorityIsSame()</td>
+<td class="success">0.531s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateTaskPriority_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">updateTaskPriority_shouldUpdatePriorityAndLogActivity()</td>
+<td class="failures">0.055s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">updateTask_shouldReturnUpdatedTaskDtoAndLogActivity()</td>
+<td class="failures">0.023s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">updateTask_shouldThrowResourceNotFoundExceptionWhenTaskNotFound()</td>
+<td class="success">0.026s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.2</a> at Aug 2, 2025, 2:00:36 PM</p>
+</div>
+</div>
+</body>
+</html>
